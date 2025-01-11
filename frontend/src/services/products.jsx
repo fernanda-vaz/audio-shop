@@ -1,0 +1,44 @@
+import { useState } from 'react'
+
+export default function ProductServices() {
+  const [productosLoading, setProductsLoading] = useState(false)
+  const [refetchProducts, setRefetchProducts] = useState(true)
+  const [productsList, setProductsList] = useState([])
+
+  const url = 'http://localhost:3000/products'
+
+  const getAvailableProducts = (userId) => {
+    setProductsLoading(true)
+
+    fetch(`${url}/available`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result)
+        if (result.success) {
+          setProductsList(result.body)
+        } else {
+          console.log(result)
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+      .finally(() => {
+        setProductsLoading(false)
+        setRefetchProducts(false)
+      })
+  }
+
+  return {
+    getAvailableProducts,
+    productosLoading,
+    refetchProducts,
+    productsList,
+  }
+}

@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+#root {
+    font-size: x-large;
+}
+
+main {
+	max-width: 1280px;
+	margin: 0 auto;
+	min-height: 100vh;
+}
+
+button {
+	display: flex;
+	gap: 0.5em;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+	background-color: #0ACF83;
+    color: #fff;
+	border: none;
+	padding: 1em;
+	border-radius: 0.5em;
+	cursor: pointer;
+	font-size: medium;
+}
