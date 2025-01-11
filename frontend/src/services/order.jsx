@@ -19,7 +19,6 @@ export default function OrderServices() {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result)
         if (result.success) {
           setOrdersList(result.body)
         } else {

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 export default function ProductServices() {
-  const [productosLoading, setProductsLoading] = useState(false)
+  const [productsLoading, setProductsLoading] = useState(false)
   const [refetchProducts, setRefetchProducts] = useState(true)
   const [productsList, setProductsList] = useState([])
 
@@ -37,7 +37,7 @@ export default function ProductServices() {
 
   return {
     getAvailableProducts,
-    productosLoading,
+    productsLoading,
     refetchProducts,
     productsList,
   }

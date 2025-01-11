@@ -2,10 +2,14 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
+	font-family: "DM Sans", serif;
 }
 
 #root {
     font-size: x-large;
+	background-color: #F6F6F6;
+	color: #3A3A3A;
+	min-height: 100vh;
 }
 
 main {
@@ -21,10 +25,15 @@ button {
 	justify-content: center;
 	width: fit-content;
 	background-color: #0ACF83;
-    color: #fff;
+    color: #F6F6F6;
 	border: none;
 	padding: 1em;
 	border-radius: 0.5em;
 	cursor: pointer;
-	font-size: medium;
+	font-size: 0.75em;
+}
+
+p {
+	display: flex;
+	gap: .25em;
 }
