@@ -24,6 +24,7 @@ export default class ProductsControllers {
     }
   }
 
+
   async addProduct(productData) {
     try {
       const result = await this.dataAccess.addProduct(productData)

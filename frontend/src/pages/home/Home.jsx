@@ -25,7 +25,9 @@ export default function Home() {
             alt=''
           />
           <img src='/imgs/icons/logo-home.svg' alt='' />
-          <img src='/imgs/icons/user.svg' alt='' />
+          <Link to={'/profile'}>
+            <img src='/imgs/icons/user.svg' alt='' />
+          </Link>
         </div>
 
         <Drawer anchor='left' open={openMenu} onClose={handleOpenMenu}>

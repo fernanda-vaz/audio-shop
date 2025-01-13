@@ -2,6 +2,7 @@ import { useState } from 'react'
 import styles from './Products.module.css'
 import { Drawer } from '@mui/material'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function Products() {
   const [openMenu, setOpenMenu] = useState(false)
@@ -10,13 +11,17 @@ export default function Products() {
     setOpenMenu(!openMenu)
   }
 
+  const navigate = useNavigate()
+
   return (
     <div className={styles.pageContainer}>
       <nav>
         <div className={styles.mobileNavbarItems}>
           <img
             className={styles.navbarLink}
-            onClick={handleOpenMenu}
+            onClick={() => {
+              navigate(-1)
+            }}
             src='/imgs/icons/arrow-left.svg'
             alt=''
           />

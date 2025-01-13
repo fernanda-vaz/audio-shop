@@ -1,0 +1,86 @@
+.pageContainer {
+  height: 100vh;
+  width: 100vw;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: 0.5em;
+  height: 4em;
+}
+
+.mobileNavbarItems {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1.5em;
+  padding: 1em;
+}
+
+.drawer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 2em;
+  font-size: 20px;
+  gap: 2em;
+  margin-top: 3em;
+}
+
+.ordersHeader {
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.ordersContainer {
+    margin: 1em;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1em;
+}
+
+.orderContainer {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    background-color: var(--color-light-grey-2);
+    color: var(--color-dark-grey-2);
+    border-radius: 1em;
+    padding: 1em;
+}
+
+.deliveryStatus {
+    border-radius: .5em;
+    width: fit-content;
+    padding: .2em;
+    font-size: 18px;
+}
+
+.zeroOrder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    gap: 1em;
+}
+
+.pending {
+    background-color: #d6c91863;
+}
+
+.delivered {
+    background: #0acf8363;
+}
+
+.sent {
+    background-color: #18a0d663;
+}
+
+.canceled {
+    background-color: #cd4d1a63;
+}

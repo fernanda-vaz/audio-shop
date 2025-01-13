@@ -42,4 +42,5 @@ productsRouter.get('/available', async (req, res) => {
   res.status(statusCode).send({ success, statusCode, body })
 })
 
+
 export default productsRouter

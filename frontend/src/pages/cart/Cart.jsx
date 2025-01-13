@@ -1,12 +1,18 @@
 import styles from './Cart.module.css'
 import MyButton from '../../components/buttons/MyButton'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Cart() {
+  const navigate = useNavigate()
+  
   return (
     <div className={styles.pageContent}>
       <nav>
         <div className={styles.mobileNavbarItems}>
           <img
+            onClick={() => {
+              navigate(-1)
+            }}
             className={styles.navbarLink}
             src='/imgs/icons/arrow-left.svg'
             alt=''
@@ -43,10 +49,12 @@ export default function Cart() {
       </div>
 
       <div className={styles.button}>
-        <MyButton>
-            Proceed to Checkout
-            <img src="/imgs/icons/chevron-right.svg" alt="" />
-        </MyButton>
+        <Link>
+          <MyButton>
+              Proceed to Checkout
+              <img src="/imgs/icons/chevron-right.svg" alt="" />
+          </MyButton>
+        </Link>
       </div>
     </div>
   )

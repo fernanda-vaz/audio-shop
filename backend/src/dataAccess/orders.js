@@ -46,7 +46,7 @@ export default class OrdersDataAccess {
             _id: '$_id',
             userDetails: { $first: '$userDetails' },
             orderItems: { $push: '$orderItems' },
-            pickupStatus: { $first: '$pickupStatus' },
+            deliveryStatus: { $first: '$deliveryStatus' },
           },
         },
       ])
@@ -94,7 +94,7 @@ export default class OrdersDataAccess {
             _id: '$_id',
             userDetails: { $first: '$userDetails' },
             orderItems: { $push: '$orderItems' },
-            pickupStatus: { $first: '$pickupStatus' },
+            deliveryStatus: { $first: '$deliveryStatus' },
           },
         },
       ])
@@ -107,7 +107,7 @@ export default class OrdersDataAccess {
     const { items, ...orderDataRest } = orderData
 
     orderDataRest.createAt = new Date()
-    orderDataRest.pickupStatus = 'Pending'
+    orderDataRest.deliveryStatus = 'Pending'
     orderDataRest.userId = new ObjectId(orderDataRest.userId)
 
     const newOrder = await Mongo.db

@@ -20,6 +20,7 @@ export default class ProductsDataAccess {
     return result
   }
 
+
   async addProduct(productData) {
     const result = await Mongo.db
       .collection(collectionName)

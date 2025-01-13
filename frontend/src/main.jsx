@@ -8,19 +8,23 @@ import Auth from './pages/auth/Auth.jsx'
 import Cart from './pages/cart/Cart.jsx'
 import Products from './pages/products/Products.jsx'
 import Profile from './pages/profile/Profile.jsx'
-import ProductDetails from './pages/products/ProductDetails.jsx'
+import ProductDetails from './pages/productDetails/ProductDetails.jsx'
+import UserOrders from './pages/orders/UserOrders.jsx'
+import NewProducts from './pages/products/newProducts.jsx'
 
 const pages = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     children: [
-      { path: '/', element: <Home /> },
-      { path: '/auth', element: <Auth /> },
+      { path: '/home', element: <Home /> },
+      { path: '/', element: <Auth /> },
       { path: '/cart', element: <Cart /> },
       { path: '/products', element: <Products /> },
+      { path: '/available', element: <NewProducts /> },
       { path: '/profile', element: <Profile /> },
-      { path: '/details', element: <ProductDetails /> }
+      { path: '/details', element: <ProductDetails /> },
+      { path: '/orders', element: <UserOrders /> },
     ],
   },
 ])
