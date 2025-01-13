@@ -1,74 +1,74 @@
 .pageContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  padding: 0.5em;
+  height: 100vh;
+  width: 100vw;
 }
 
-.profileContainer Button {
-  color: #f6f6f6;
-  background-color: #0acf83;
-}
-
-.ordersContainer {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.75em;
-}
-
-.orderContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-  background-color: #0acf83;
-  color: #fff;
-  padding: 1em;
-  border-radius: 0.5em;
-}
-
-.pickupStatus {
-  border-radius: 0.5em;
-  width: fit-content;
-  padding: 0.2em;
-  font-size: 24px;
+nav {
   display: flex;
   align-items: center;
+  padding: 0.5em;
+  height: 4em;
+}
+
+.mobileNavbarItems {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1.5em;
+  padding: 1em;
+}
+
+.profileHeader {
+  display: flex;
+  margin: 2em;
+  justify-content: center;
+  gap: 3em;
+}
+
+.profileInfos {
+  display: flex;
+  flex-direction: column;
   gap: 0.2em;
 }
 
-.pending {
-  background-color: #d6c918;
+.profileInfos h3 {
+  font-size: 16px;
+  font-weight: 600;
 }
 
-.completed {
-  background-color: #9ad618;
+.profileInfos p {
+  font-size: 14px;
+  color: var(--color-dark-grey-1);
 }
 
-.canceled {
-  background-color: #ce4d1a;
+hr {
+  border: 1px solid var(--color-light-grey-2);
+  color: var(--color-light-grey-1);
 }
 
-.linkProducts {
-  color: #f6f6f6;
-}
-
-.notOrdersContainer {
+.pageContent {
+  margin: 1em;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  gap: 2.5em;
+}
+
+.contentItems {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
   gap: 1em;
 }
 
-.notOrderText {
-  display: flex;
-  gap: 0.72em;
-  align-items: center;
+.contentItems h4 {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-dark-grey-1);
 }
 
-@media screen and (max-width: 800px) {
-  .ordersContainer {
-    grid-template-columns: repeat(1, 1fr);
-  }
+.contentItems h3 {
+  font-size: 16px;
+  font-weight: 400;
 }
