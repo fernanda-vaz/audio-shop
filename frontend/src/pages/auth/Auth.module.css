@@ -1,11 +1,43 @@
-.pageContainer, form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: .5em;
+.pageContainer {
+  height: 100vh;
+  background-image: url('../../../public/imgs/auth/Auth-login.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.pageContent {
+  display: flex;
+  color: #f3f3f3;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2em;
+  margin-top: -150px;
+  margin-bottom: 200px;
+  font-size: 32px;
+}
+
+.pageContent p {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.pageContainer,
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.authBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75em;
 }
 
 .formBtnIcon {
-    color: #f3f3f3;
+  color: #f3f3f3;
 }

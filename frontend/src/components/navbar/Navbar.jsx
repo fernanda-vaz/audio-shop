@@ -34,18 +34,15 @@ export default function Navbar() {
       </div>
 
       <div className={styles.mobileNavbarItems}>
-        <Link to={'/'}>
-          <img className={styles.logo} src='/imgs/icons/logo.png' alt='' />
-        </Link>
         <div className={styles.mobileNavbarBtns}>
-          <Link to={'/cart'}>
+          <img className={styles.navbarLink} src='/imgs/icons/menu-variant.svg' onClick={handleOpenMenu} alt=''/> 
+          <Link to={'/auth'}>
             <img
               className={styles.navbarLink}
-              src='/imgs/icons/shopping-cart.svg'
+              src='/imgs/icons/user.svg'
               alt=''
             />
-          </Link> 
-          <img className={styles.navbarLink} src='/imgs/icons/menu-variant.svg' onClick={handleOpenMenu} alt=''/> 
+          </Link>   
         </div>
       </div>
 

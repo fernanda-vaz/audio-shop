@@ -8,6 +8,7 @@ import Auth from './pages/auth/Auth.jsx'
 import Cart from './pages/cart/Cart.jsx'
 import Products from './pages/products/Products.jsx'
 import Profile from './pages/profile/Profile.jsx'
+import ProductDetails from './pages/products/ProductDetails.jsx'
 
 const pages = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const pages = createBrowserRouter([
       { path: '/cart', element: <Cart /> },
       { path: '/products', element: <Products /> },
       { path: '/profile', element: <Profile /> },
+      { path: '/details', element: <ProductDetails /> }
     ],
   },
 ])

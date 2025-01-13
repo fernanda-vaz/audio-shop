@@ -1,4 +1,4 @@
-import { Button, TextField } from '@mui/material'
+import { Box, Button, TextField } from '@mui/material'
 import { useEffect, useState } from 'react'
 import styles from './Auth.module.css'
 import AuthServices from '../../services/auth'
@@ -57,88 +57,126 @@ export default function Auth() {
   }
 
   if (authLoading) {
-    return (
-      <Loading />
-    )
+    return <Loading />
   }
 
   return (
     <div className={styles.pageContainer}>
       {formType === 'login' ? (
         <>
-          <h1>Login</h1>
+          <div className={styles.pageContent}>
+            <h1>Audio</h1>
+            <p>It's modular and designed to last</p>
+          </div>
+
+          <form onSubmit={handleSubmitForm}>
+            <Box
+              sx={{ width: 330, maxWidth: '100%' }}
+              className={styles.authBox}
+            >
+              <TextField
+                color='success'
+                focused
+                fullWidth
+                required
+                label='Email'
+                type='email'
+                name='email'
+                onChange={handleChangeFormData}
+              />
+
+              <TextField
+                focused
+                fullWidth
+                color='success'
+                required
+                label='Senha'
+                type='password'
+                name='password'
+                onChange={handleChangeFormData}
+              />
+            </Box>
+
+            <MyButton className={styles.formBtn} type='submit'>
+              Login <img src='/imgs/icons/log-in.svg' alt='' />
+            </MyButton>
+          </form>
+
           <Button onClick={handleChangeFormType}>
             Não tem uma conta? clique aqui
           </Button>
-
-          <form onSubmit={handleSubmitForm}>
-            <TextField
-              required
-              label='Email'
-              type='email'
-              name='email'
-              onChange={handleChangeFormData}
-            />
-
-            <TextField
-              required
-              label='Senha'
-              type='password'
-              name='password'
-              onChange={handleChangeFormData}
-            />
-
-            <MyButton className={styles.formBtn} type='submit'>
-              Login <img  src='/imgs/icons/log-in.svg' alt='' />
-            </MyButton>
-          </form>
         </>
       ) : null}
 
       {formType === 'signup' ? (
         <>
-          <h1>Signup</h1>
+          <div className={styles.pageContent}>
+            <h1>Audio</h1>
+            <p>It's modular and designed to last</p>
+          </div>
+
+          <form onSubmit={handleSubmitForm}>
+            <Box
+              sx={{ width: 330, maxWidth: '100%' }}
+              className={styles.authBox}
+            >
+              <TextField
+                required
+                focused
+                fullWidth
+                color='success'
+                label='Nome Completo'
+                type='fullname'
+                name='fullname'
+                onChange={handleChangeFormData}
+              />
+
+              <TextField
+                required
+                focused
+                fullWidth
+                color='success'
+                label='Email'
+                type='email'
+                name='email'
+                onChange={handleChangeFormData}
+              />
+
+              <TextField
+                required
+                focused
+                fullWidth
+                color='success'
+                label='Senha'
+                type='password'
+                name='password'
+                onChange={handleChangeFormData}
+              />
+
+              <TextField
+                required
+                focused
+                fullWidth
+                color='success'
+                label='Confirme a senha'
+                type='password'
+                name='confirmPassword'
+                onChange={handleChangeFormData}
+              />
+            </Box>
+
+            <MyButton className={styles.formBtn} type='submit'>
+              Login{' '}
+              <img
+                className={styles.formBtnIcon}
+                src='/imgs/icons/log-in.svg'
+                alt=''
+              />
+            </MyButton>
+          </form>
           <Button onClick={handleChangeFormType}>
             Já tem uma conta? clique aqui
           </Button>
-
-          <form onSubmit={handleSubmitForm}>
-            <TextField
-              required
-              label='Nome Completo'
-              type='fullname'
-              name='fullname'
-              onChange={handleChangeFormData}
-            />
-
-            <TextField
-              required
-              label='Email'
-              type='email'
-              name='email'
-              onChange={handleChangeFormData}
-            />
-
-            <TextField
-              required
-              label='Senha'
-              type='password'
-              name='password'
-              onChange={handleChangeFormData}
-            />
-
-            <TextField
-              required
-              label='Confirme a senha'
-              type='password'
-              name='confirmPassword'
-              onChange={handleChangeFormData}
-            />
-
-            <MyButton className={styles.formBtn} type='submit'>
-              Login <img className={styles.formBtnIcon} src='/imgs/icons/log-in.svg' alt='' />
-            </MyButton>
-          </form>
         </>
       ) : null}
     </div>

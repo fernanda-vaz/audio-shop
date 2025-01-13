@@ -36,7 +36,7 @@ export default function Profile() {
 
   return (
     <div className={styles.pageContainer}>
-      <div>
+      <div className={styles.profileContainer}>
         <h1>Olá, {authData?.user?.fullname}</h1>
         <h4>{authData?.user?.email}</h4>
         <Button color='inherit' onClick={handleLogout}>

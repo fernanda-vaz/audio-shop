@@ -5,6 +5,11 @@
   padding: 0.5em;
 }
 
+.profileContainer Button {
+  color: #f6f6f6;
+  background-color: #0acf83;
+}
+
 .ordersContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -58,7 +63,7 @@
 
 .notOrderText {
   display: flex;
-  gap: .72em;
+  gap: 0.72em;
   align-items: center;
 }
 
