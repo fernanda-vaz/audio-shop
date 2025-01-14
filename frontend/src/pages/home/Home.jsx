@@ -32,7 +32,7 @@ export default function Home() {
 
         <Drawer anchor='left' open={openMenu} onClose={handleOpenMenu}>
           <div className={styles.drawer}>
-            <Link to={'/'}>Home</Link>
+            <Link to={'/orders'}>Orders</Link>
             <Link to={'/products'}>Products</Link>
             <Link to={'/cart'} className={styles.cartItem}>
               Cart
@@ -72,10 +72,12 @@ export default function Home() {
             <div className={styles.homeProductCard}>
                 <h2>Sennheiser HD 25 Headphone</h2>
                 <img src="/imgs/products/Fone-de-Ouvido-Sennheiser-HD-25.png" alt="" />
-                <MyButton className={styles.productCardBtn}>
-                    Shop now
-                    <img src="/imgs/icons/arrow-right.svg" alt="" />
-                </MyButton>
+                <Link to={'/products'}>
+                  <MyButton className={styles.productCardBtn}>
+                      Shop now
+                      <img src="/imgs/icons/arrow-right.svg" alt="" />
+                  </MyButton>
+                </Link>
             </div>
             
             <div className={styles.homeFeaturedProducts}>
