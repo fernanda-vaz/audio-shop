@@ -19,7 +19,7 @@ export default function () {
 
   useEffect(() => {
     if (!authData) {
-      return navigate('/')
+      return navigate('/home')
     } else if (refetchOrders) {
       getUserOrders(authData?.user?._id)
     }
@@ -59,7 +59,7 @@ export default function () {
         </Drawer>
       </nav>
       <div className={styles.ordersHeader}>
-        <h2>Olá, {authData?.user?.fullname}</h2>
+        <h2>Hello, {authData?.user?.fullname}</h2>
         <h4>{authData?.user?.email}</h4>
       </div>
 

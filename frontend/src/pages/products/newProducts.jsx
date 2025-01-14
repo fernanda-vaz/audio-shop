@@ -1,27 +1,44 @@
 import styles from './newProducts.module.css'
 import ProductService from '../../services/products.jsx'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Loading from '../../components/loading/Loading.jsx'
 import ProductsCard from '../../components/productCard/ProductCard'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCartContext } from '../../contexts/useCartContext'
+import ProductPopup from '../../components/productPopup/ProductPopup.jsx'
 
 export default function NewProducts() {
   const navigate = useNavigate()
-  
-    const {
+
+  const {
     getAvailableProducts,
     productsList,
     productsLoading,
     refetchProducts,
   } = ProductService()
 
+  const [selectedProduct, setSelectedProduct] = useState(null)
+
+
   useEffect(() => {
-    if(refetchProducts) {
-        getAvailableProducts()
+    if (refetchProducts) {
+      getAvailableProducts()
     }
   }, [refetchProducts])
 
-  if(productsLoading) {
+  const handleSelectedProduct = (product) => {
+    setSelectedProduct(product)
+  }
+
+  const handlePopupClose = () => {
+    setSelectedProduct(null)
+  }
+
+  const handleAddToCart = (itemToAdd) => {
+    handlePopupClose()
+  }
+
+  if (productsLoading) {
     return <Loading />
   }
   console.log(productsList)
@@ -39,23 +56,43 @@ export default function NewProducts() {
             alt=''
           />
           <img src='/imgs/icons/logo-home.svg' alt='' />
-          <Link to={'/cart'}><img src='/imgs/icons/shopping-cart.svg' alt='' /></Link>
-          
+          <Link to={'/cart'}>
+            <img src='/imgs/icons/shopping-cart.svg' alt='' />
+          </Link>
         </div>
       </nav>
 
       <div className={styles.prodCategories}>
         <ul>
-            <li><Link className={styles.link}>Controllers</Link></li>
-            <li><Link className={styles.link}>Headphones</Link></li>
-            <li><Link className={styles.link}>Mixers</Link></li>
+          <li>
+            <Link className={styles.link}>Controllers</Link>
+          </li>
+          <li>
+            <Link className={styles.link}>Headphones</Link>
+          </li>
+          <li>
+            <Link className={styles.link}>Mixers</Link>
+          </li>
         </ul>
         {productsList.map((product) => (
-            <div className={styles.cardContainer}>
-                <ProductsCard productData={product}/>
-            </div>
+          <div
+            className={styles.cardContainer}
+            key={product._id}
+            onClick={() => {
+              handleSelectedProduct(product)
+            }}
+          >
+            <ProductsCard productData={product} />
+          </div>
         ))}
       </div>
+
+      {selectedProduct && (
+        <ProductPopup 
+          productData={selectedProduct}
+          onClose={handlePopupClose}
+        />
+      )}
     </div>
   )
 }

@@ -42,5 +42,25 @@ productsRouter.get('/available', async (req, res) => {
   res.status(statusCode).send({ success, statusCode, body })
 })
 
+productsRouter.get('/headphones', async (req, res) => {
+  const { success, statusCode, body } =
+    await productsControllers.getProductsByHeadphonesCategory()
+
+  res.status(statusCode).send({ success, statusCode, body })
+})
+
+productsRouter.get('/controllers', async (req, res) => {
+  const { success, statusCode, body } =
+    await productsControllers.getProductsByControllersCategory()
+
+  res.status(statusCode).send({ success, statusCode, body })
+})
+
+productsRouter.get('/mixers', async (req, res) => {
+  const { success, statusCode, body } =
+    await productsControllers.getProductsByMixersCategory()
+
+  res.status(statusCode).send({ success, statusCode, body })
+})
 
 export default productsRouter

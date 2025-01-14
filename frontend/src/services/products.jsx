@@ -34,10 +34,40 @@ export default function ProductService() {
       })
   }
 
+  const getProductsByHeadphonesCategory = (userId) => {
+    setProductsLoading(true)
+
+    fetch(`${url}/headphones`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.success) {
+          setProductsList(result.body)
+        } else {
+          console.log(result)
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+      .finally(() => {
+        setProductsLoading(false)
+        setRefetchProducts(false)
+      })
+  }
+
+  
+
   return {
     getAvailableProducts,
     productsLoading,
     refetchProducts,
     productsList,
+    getProductsByHeadphonesCategory,
   }
 }

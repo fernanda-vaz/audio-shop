@@ -1,0 +1,22 @@
+.popupContainer {
+  background-color: var(--color-light-grey-1);
+  color: var(--color-dark-grey-1);
+}
+
+.popupContainer img {
+  height: 420px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.popupContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+}
+
+.price {
+    font-weight: 600;
+    color: var(--color-green);
+}

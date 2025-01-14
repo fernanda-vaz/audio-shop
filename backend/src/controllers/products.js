@@ -24,6 +24,32 @@ export default class ProductsControllers {
     }
   }
 
+  async getProductsByHeadphonesCategory() {
+    try {
+      const products = await this.dataAccess.getProductsByHeadphonesCategory()
+      return ok(products)
+    } catch (error) {
+      return serverError(error)
+    }
+  }
+
+  async getProductsByControllersCategory() {
+    try {
+      const products = await this.dataAccess.getProductsByControllersCategory()
+      return ok(products)
+    } catch (error) {
+      return serverError(error)
+    }
+  }
+
+  async getProductsByMixersCategory() {
+    try {
+      const products = await this.dataAccess.getProductsByMixersCategory()
+      return ok(products)
+    } catch (error) {
+      return serverError(error)
+    }
+  }
 
   async addProduct(productData) {
     try {

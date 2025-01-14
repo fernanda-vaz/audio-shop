@@ -32,9 +32,20 @@ nav {
 
 .ordersHeader {
     margin: 1em;
+    margin-bottom: 4em;
     display: flex;
     flex-direction: column;
     gap: .5em;
+}
+
+.ordersHeader h2 {
+    font-weight: 700;
+}
+
+.ordersHeader h4 {
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--color-dark-grey-1);
 }
 
 .ordersContainer {

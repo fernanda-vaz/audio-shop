@@ -11,6 +11,7 @@ import Profile from './pages/profile/Profile.jsx'
 import ProductDetails from './pages/productDetails/ProductDetails.jsx'
 import UserOrders from './pages/orders/UserOrders.jsx'
 import NewProducts from './pages/products/newProducts.jsx'
+import TestPage from './pages/testPage/TestPage.jsx'
 
 const pages = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ const pages = createBrowserRouter([
       { path: '/profile', element: <Profile /> },
       { path: '/details', element: <ProductDetails /> },
       { path: '/orders', element: <UserOrders /> },
+      { path: '/test', element: <TestPage /> },
     ],
   },
 ])

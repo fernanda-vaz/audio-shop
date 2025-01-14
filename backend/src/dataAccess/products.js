@@ -20,6 +20,32 @@ export default class ProductsDataAccess {
     return result
   }
 
+  async getProductsByHeadphonesCategory() {
+    const result = await Mongo.db
+      .collection(collectionName)
+      .find({ category: 'Headphones', available: true })
+      .toArray()
+
+    return result
+  }
+
+  async getProductsByControllersCategory() {
+    const result = await Mongo.db
+      .collection(collectionName)
+      .find({ category: 'Controllers', available: true })
+      .toArray()
+
+    return result
+  }
+
+  async getProductsByMixersCategory() {
+    const result = await Mongo.db
+      .collection(collectionName)
+      .find({ category: 'Mixers', available: true })
+      .toArray()
+
+    return result
+  }
 
   async addProduct(productData) {
     const result = await Mongo.db
