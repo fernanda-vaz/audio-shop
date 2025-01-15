@@ -25,10 +25,8 @@ export default function () {
     }
   }, [authData, refetchOrders])
 
-  if(orderLoading) {
-    return (
-        <Loading />
-    )
+  if (orderLoading) {
+    return <Loading />
   }
 
   return (
@@ -65,55 +63,60 @@ export default function () {
 
       {ordersList.length > 0 ? (
         <div className={styles.ordersContainer}>
-            <h1>Your orders: </h1>
-            {ordersList.map((order) => (
-                <div key={order._id} className={styles.orderContainer}>
-                    {order.deliveryStatus === 'Pending' ? (
-                            <p className={`${styles.deliveryStatus} ${styles.pending}`}>
-                                <img src="/imgs/icons/clock.svg" alt="" />
-                                {order.deliveryStatus}
-                            </p>
-                    ) : null}
+          <h1>Your orders: </h1>
+          {ordersList.map((order) => (
+            <div key={order._id} className={styles.orderContainer}>
+              {order.deliveryStatus === 'Pending' ? (
+                <p className={`${styles.deliveryStatus} ${styles.pending}`}>
+                  <img src='/imgs/icons/clock.svg' alt='' />
+                  {order.deliveryStatus}
+                </p>
+              ) : null}
 
-                    {order.deliveryStatus === 'Delivered' ? (
-                        <p className={`${styles.deliveryStatus} ${styles.delivered}`}>
-                            <img src="/imgs/icons/check-square.svg" alt="" />
-                            {order.deliveryStatus}
-                        </p>
-                    ) : null}
+              {order.deliveryStatus === 'Delivered' ? (
+                <p className={`${styles.deliveryStatus} ${styles.delivered}`}>
+                  <img src='/imgs/icons/check-square.svg' alt='' />
+                  {order.deliveryStatus}
+                </p>
+              ) : null}
 
-                    {order.deliveryStatus === 'Sent' ? (
-                        <p className={`${styles.deliveryStatus} ${styles.sent}`}>
-                            <img src="/imgs/icons/truck.svg" alt="" />
-                            {order.deliveryStatus}
-                        </p>
-                    ) : null}
+              {order.deliveryStatus === 'Sent' ? (
+                <p className={`${styles.deliveryStatus} ${styles.sent}`}>
+                  <img src='/imgs/icons/truck.svg' alt='' />
+                  {order.deliveryStatus}
+                </p>
+              ) : null}
 
-                    {order.deliveryStatus === 'Canceled' ? (
-                        <p className={`${styles.deliveryStatus} ${styles.canceled}`}>
-                            <img src="/imgs/icons/x-circle.svg" alt="" />
-                            {order.deliveryStatus}
-                        </p>
-                    ) : null}
+              {order.deliveryStatus === 'Canceled' ? (
+                <p className={`${styles.deliveryStatus} ${styles.canceled}`}>
+                  <img src='/imgs/icons/x-circle.svg' alt='' />
+                  {order.deliveryStatus}
+                </p>
+              ) : null}
 
-                    {order.orderItems.map((item) => (
-                        <div key={item._id}>
-                            <div>
-                                <h4>{item.itemDetails[0].name}</h4>
-                                <p>Quantity: {item.quantity}</p>
-                            </div>
-                        </div>
-                    ))}
+              {order.orderItems.map((item) => (
+                <div key={item._id}>
+                  <div className={styles.deliveredContainer}>
+                    <h4>{item.itemDetails[0].name}</h4>
+                    <p>Quantity: {item.quantity}</p>
+                  </div>
+                  <div className={styles.zeroOrder}>
+                    <Link to={'/available'}>
+                      <MyButton>Click Here to order!</MyButton>
+                    </Link>
+                  </div>
                 </div>
-            ))}
+              ))}
+            </div>
+          ))}
         </div>
       ) : (
         <div className={styles.zeroOrder}>
-            <h3>You do not have orders yet!</h3>
-            <img src="/imgs/icons/sad-face.svg" alt="" />
-            <Link to={'/products'}>
-                <MyButton>Click Here to order!</MyButton>
-            </Link>
+          <h3>You do not have orders yet!</h3>
+          <img src='/imgs/icons/sad-face.svg' alt='' />
+          <Link to={'/products'}>
+            <MyButton>Click Here to order!</MyButton>
+          </Link>
         </div>
       )}
     </div>

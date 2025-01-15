@@ -10,8 +10,13 @@ import ConfirmOrderPopup from '../../components/confirmOrderPopup/ConfirmOrderPo
 export default function Cart() {
   const navigate = useNavigate()
 
-  const { cartItems, updateCartItems, removeFromCart, clearCart } =
-    useCartContext()
+  const {
+    cartItems,
+    updateCartItems,
+    removeFromCart,
+    clearCart,
+    calculateTotalPrice,
+  } = useCartContext()
   const [confirmPopupOpen, setConfirmPopupOpen] = useState(false)
   const { sendOrder } = OrderServices()
 
@@ -40,7 +45,7 @@ export default function Cart() {
 
   const handleConfirmOrder = (orderData) => {
     orderData.items = cartItems.map((item) => {
-      return { plateId: item._id, quantity: item.quantity }
+      return { productId: item._id, quantity: item.quantity }
     })
 
     sendOrder(orderData)
@@ -147,20 +152,20 @@ export default function Cart() {
       </section>
 
       <div className={styles.cartFinalPrice}>
-        <p>Total: 1 item</p>
-        <h5>$ 399</h5>
+        <p>
+          Total: {cartItems.length} {cartItems.length === 1 ? 'item' : 'items'}
+        </p>
+        <h5>$ {calculateTotalPrice().toFixed(2)}</h5>
       </div>
 
-      
-        <Link className={styles.checkoutBtn} onClick={handleOpenPopup}>
-          <MyButton>
-            Proceed to Checkout
-            <img src='/imgs/icons/chevron-right.svg' alt='' />
-          </MyButton>
-        </Link>
-      
+      <Link className={styles.checkoutBtn} onClick={handleOpenPopup}>
+        <MyButton>
+          Proceed to Checkout
+          <img src='/imgs/icons/chevron-right.svg' alt='' />
+        </MyButton>
+      </Link>
 
-      <ConfirmOrderPopup 
+      <ConfirmOrderPopup
         open={confirmPopupOpen}
         onClose={handleOpenPopup}
         onConfirm={handleConfirmOrder}

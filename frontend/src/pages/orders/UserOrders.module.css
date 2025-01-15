@@ -95,3 +95,7 @@ nav {
 .canceled {
     background-color: #cd4d1a63;
 }
+
+.deliveredContainer {
+    margin-bottom: 2em;
+}
