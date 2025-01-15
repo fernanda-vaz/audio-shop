@@ -81,7 +81,7 @@ export default function Cart() {
           <img src='/imgs/icons/sad-face.svg' alt='' />
         </div>
 
-        <Link className={styles.linkBtn} to={'/available'}>
+        <Link className={styles.linkBtn} to={'/products'}>
           <MyButton>Check our products!</MyButton>
         </Link>
       </div>

@@ -1,42 +1,47 @@
-import { useEffect } from 'react'
-import ProductService from '../../services/products'
-import Loading from '../../components/loading/Loading'
-import ProductsCard from '../../components/productCard/ProductCard'
-import { Link } from 'react-router-dom'
-import MyButton from '../../components/buttons/MyButton'
+import {
+  Box,
+  FormControl,
+  Input,
+  InputAdornment,
+  InputLabel,
+  TextField,
+} from '@mui/material'
+import SearchIcon from '@mui/icons-material/Search'
 
-export default function() {
-  const { getAvailableProducts, getProductsByHeadphonesCategory, productsList, productsLoading, refetchProducts } = ProductService()
-  
-  useEffect(() => {
-    if(refetchProducts) {
-      getAvailableProducts()
-    }
-  }, [refetchProducts])
-
-  if(productsLoading) {
-    return (
-      <Loading />
-    )
-  }
-
-  const handleHeadphonesCategory = () => {
-    getProductsByHeadphonesCategory()
-  }
-
-  console.log(productsList)
-
+export default function () {
   return (
     <>
       <h1>Página teste...</h1>
 
-      <div>
-        {productsList.map((item) => (
-          <div key={item._id}>
-            <ProductsCard productData={item}/>
-          </div>
-        ))}
-      </div>
+      <Box sx={{ '& > :not(style)': { m: 1 } }}>
+        <FormControl variant='standard'>
+          <InputLabel htmlFor='input-teste'>Teste de ícone</InputLabel>
+
+          <Input
+            id='input-teste'
+            startAdornment={
+              <InputAdornment>
+                <SearchIcon />
+              </InputAdornment>
+            }
+          />
+        </FormControl>
+
+        <TextField
+          id='input-with-icon-textfield'
+          label='TextField'
+          slotProps={{
+            input: {
+              startAdornment: (
+                <InputAdornment position='start'>
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            },
+          }}
+          variant='standard'
+        />
+      </Box>
     </>
   )
 }

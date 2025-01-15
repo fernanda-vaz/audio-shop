@@ -1,73 +1,73 @@
 [
   {
-    "name": "Controladora DJ Pioneer DDJ-400",
+    "name": "Pioneer DJ Controller DDJ-400",
     "available": true,
-    "price": 2499.0,
-    "description": "Controladora de DJ de 2 canais ideal para iniciantes, com layout profissional herdado de equipamentos de ponta.",
-    "category": "Controladoras",
+    "price": 249.00,
+    "description": "2-channel DJ controller ideal for beginners, with a professional layout inherited from high-end equipment.",
+    "category": "Controllers",
     "image_url": "/imgs/products/Controladora-DJ-Pioneer-DDJ-400.png"
   },
   {
-    "name": "Fone de Ouvido Sennheiser HD 25",
+    "name": "Sennheiser HD 25 Headphones",
     "available": true,
-    "price": 899.00,
-    "description": "Fone de ouvido profissional leve e resistente, com alta atenuação de ruído ambiente, ideal para DJs.",
-    "category": "Fones de Ouvido",
+    "price": 99.95,
+    "description": "Lightweight and durable professional headphones with high ambient noise attenuation, ideal for DJs.",
+    "category": "Headphones",
     "image_url": "/imgs/products/Fone-de-Ouvido-Sennheiser-HD-25.png"
   },
   {
-    "name": "Mixer DJM-250MK2",
+    "name": "DJM-250MK2 Mixer",
     "available": false,
-    "price": 3499.0,
-    "description": "Mixer de 2 canais com crossfader Magvel, filtros Sound Color FX e placa de som USB integrada.",
+    "price": 349.00,
+    "description": "2-channel mixer with Magvel crossfader, Sound Color FX filters, and built-in USB sound card.",
     "category": "Mixers",
     "image_url": "/imgs/products/Mixer-DJM-250MK2.png"
   },
   {
-    "name": "Controladora DJ Numark Mixtrack Pro FX",
+    "name": "Numark Mixtrack Pro FX DJ Controller",
     "available": true,
-    "price": 1999.0,
-    "description": "Controladora de DJ de 2 decks com jog wheels de alta resolução, interface de áudio integrada e efeitos dedicados.",
-    "category": "Controladoras",
+    "price": 199.00,
+    "description": "2-deck DJ controller with high-resolution jog wheels, integrated audio interface, and dedicated effects.",
+    "category": "Controllers",
     "image_url": "/imgs/products/Controladora-DJ-Numark-Mixtrack-Pro-FX.png"
   },
   {
-    "name": "Fone de Ouvido Audio-Technica ATH-M50x",
+    "name": "Audio-Technica ATH-M50x Headphones",
     "available": true,
-    "price": 1199.0,
-    "description": "Fone de ouvido profissional com drivers de grande abertura, clareza excepcional e resposta de graves profunda.",
-    "category": "Fones de Ouvido",
+    "price": 149.00,
+    "description": "Professional headphones with large aperture drivers, exceptional clarity, and deep bass response.",
+    "category": "Headphones",
     "image_url": "/imgs/products/Fone-de-Ouvido-Audio-Technica-ATH-M50x.png"
   },
   {
-    "name": "Mixer Behringer DJX750",
+    "name": "Behringer DJX750 Mixer",
     "available": false,
-    "price": 2299.0,
-    "description": "Mixer de 4 canais com efeitos digitais integrados, crossfader VCA e equalizadores de 3 bandas.",
+    "price": 229.00,
+    "description": "4-channel mixer with built-in digital effects, VCA crossfader, and 3-band equalizers.",
     "category": "Mixers",
     "image_url": "/imgs/products/Mixer-Behringer-DJX750.png"
   },
   {
-    "name": "Controladora DJ Hercules Inpulse 300",
+    "name": "Hercules Inpulse 300 DJ Controller",
     "available": true,
-    "price": 1499.0,
-    "description": "Controladora de DJ de 2 decks com guia de luz integrado para aprender a mixar, ideal para iniciantes.",
-    "category": "Controladoras",
+    "price": 149.0,
+    "description": "2-deck DJ controller with integrated light guide to learn mixing, ideal for beginners.",
+    "category": "Controllers",
     "image_url": "/imgs/products/Controladora-DJ-Hercules-Inpulse-300.png"
   },
   {
-    "name": "Fone de Ouvido Pioneer HDJ-X5",
+    "name": "Pioneer HDJ-X5 Headphones",
     "available": false,
-    "price": 799.0,
-    "description": "Fone de ouvido DJ profissional com som de alta qualidade, design robusto e confortável para longas sessões.",
-    "category": "Fones de Ouvido",
+    "price": 99.0,
+    "description": "Professional DJ headphones with high-quality sound, robust design, and comfort for long sessions.",
+    "category": "Headphones",
     "image_url": "/imgs/products/Fone-de-Ouvido-Pioneer-HDJ-X5.png"
   },
   {
-    "name": "Mixer Allen & Heath Xone:23",
+    "name": "Allen & Heath Xone:23 Mixer",
     "available": true,
-    "price": 2999.0,
-    "description": "Mixer DJ de 2+2 canais com filtro VCF, equalizador de 3 bandas e construção robusta para performance profissional.",
+    "price": 299.0,
+    "description": "2+2 channel DJ mixer with VCF filter, 3-band equalizer, and robust construction for professional performance.",
     "category": "Mixers",
     "image_url": "/imgs/products/Mixer-Allen-&-Heath-Xone-23.png"
   }

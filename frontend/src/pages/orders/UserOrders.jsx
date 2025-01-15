@@ -47,9 +47,9 @@ export default function () {
 
         <Drawer anchor='left' open={openMenu} onClose={handleOpenMenu}>
           <div className={styles.drawer}>
-            <Link to={'/home'}>Home</Link>
-            <Link to={'/products'}>Products</Link>
-            <Link to={'/cart'} className={styles.cartItem}>
+            <Link className={styles.menuLink} to={'/home'}>Home</Link>
+            <Link className={styles.menuLink} to={'/products'}>Products</Link>
+            <Link className={`${styles.menuLink} ${styles.cartItem}`} to={'/cart'}>
               Cart
               <img src='/imgs/icons/shopping-cart.svg' alt='' />
             </Link>
@@ -101,7 +101,7 @@ export default function () {
                     <p>Quantity: {item.quantity}</p>
                   </div>
                   <div className={styles.zeroOrder}>
-                    <Link to={'/available'}>
+                    <Link to={'/products'}>
                       <MyButton>Click Here to order!</MyButton>
                     </Link>
                   </div>

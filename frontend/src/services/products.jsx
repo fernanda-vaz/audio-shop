@@ -61,7 +61,59 @@ export default function ProductService() {
       })
   }
 
-  
+  const getProductsByControllersCategory = (userId) => {
+    setProductsLoading(true)
+
+    fetch(`${url}/controllers`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.success) {
+          setProductsList(result.body)
+        } else {
+          console.log(result)
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+      .finally(() => {
+        setProductsLoading(false)
+        setRefetchProducts(false)
+      })
+  }
+
+  const getProductsByMixersCategory = (userId) => {
+    setProductsLoading(true)
+
+    fetch(`${url}/mixers`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.success) {
+          setProductsList(result.body)
+        } else {
+          console.log(result)
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+      .finally(() => {
+        setProductsLoading(false)
+        setRefetchProducts(false)
+      })
+  }
 
   return {
     getAvailableProducts,
@@ -69,5 +121,7 @@ export default function ProductService() {
     refetchProducts,
     productsList,
     getProductsByHeadphonesCategory,
+    getProductsByControllersCategory,
+    getProductsByMixersCategory,
   }
 }

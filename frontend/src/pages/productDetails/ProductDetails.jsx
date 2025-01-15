@@ -1,13 +1,42 @@
 import styles from './ProductDetails.module.css'
 import MyButton from '../../components/buttons/MyButton.jsx'
+import { useNavigate } from 'react-router-dom'
+import ProductService from '../../services/products.jsx'
+import { useEffect } from 'react'
+import { useCartContext } from '../../contexts/useCartContext.jsx'
+import Loading from '../../components/loading/Loading.jsx'
 
-export default function ProductDetails() {
+export default function ProductDetails({ productData, onAddToCart }) {
+  const navigate = useNavigate()
+
+  const { addToCart } = useCartContext()
+  const { getAvailableProducts, productsList, productsLoading, refetchProducts } = ProductService()
+
+  useEffect(() => {
+    if(refetchProducts) {
+      getAvailableProducts()
+    }
+  }, [refetchProducts])
+
+  const handleAddToCart = (itemToAdd) => {
+    addToCart()
+  }
+
+  if(productsLoading) {
+    return(
+      <Loading />
+    )
+  }
+
   return (
     <div className={styles.pageContainer}>
       <nav>
         <div className={styles.mobileNavbarItems}>
           <img
             className={styles.navbarLink}
+            onClick={() => {
+              navigate(-1)
+            }}
             src='/imgs/icons/arrow-left.svg'
             alt=''
           />

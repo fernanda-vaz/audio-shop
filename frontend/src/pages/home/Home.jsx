@@ -1,15 +1,55 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './Home.module.css'
 import { Box, Drawer, InputAdornment, TextField } from '@mui/material'
 import { Link } from 'react-router-dom'
 import SearchIcon from '@mui/icons-material/Search'
 import MyButton from '../../components/buttons/MyButton'
+import ProductService from '../../services/products'
+import Loading from '../../components/loading/Loading'
 
 export default function Home() {
   const [openMenu, setOpenMenu] = useState(false)
+  const [selectedCategory, setSelectedCategory] = useState('Controllers')
+  const [filteredProducts, setFilteredProducts] = useState([])
+
+  const {
+    getProductsByControllersCategory,
+    getProductsByHeadphonesCategory,
+    getProductsByMixersCategory,
+    getAvailableProducts,
+    productsList,
+    refetchProducts,
+    productsLoading,
+  } = ProductService()
+
+  useEffect(() => {
+    if (selectedCategory === 'Headphones') {
+      getProductsByHeadphonesCategory()
+    } else if (selectedCategory === 'Controllers') {
+      getProductsByControllersCategory()
+    } else if (selectedCategory === 'Mixers') {
+      getProductsByMixersCategory()
+    }
+  }, [selectedCategory])
+
+  useEffect(() => {
+    if (productsList.length > 0) {
+      setFilteredProducts(productsList.slice(0, 1))
+    }
+  }, [productsList])
+
+  useEffect(() => {
+    if (refetchProducts) {
+      getAvailableProducts()
+    }
+  }, [refetchProducts])
 
   const handleOpenMenu = () => {
     setOpenMenu(!openMenu)
+  }
+
+  if (productsLoading) {
+    return <Loading />
   }
 
   const authData = JSON.parse(localStorage.getItem('auth'))
@@ -32,9 +72,16 @@ export default function Home() {
 
         <Drawer anchor='left' open={openMenu} onClose={handleOpenMenu}>
           <div className={styles.drawer}>
-            <Link to={'/orders'}>Orders</Link>
-            <Link to={'/products'}>Products</Link>
-            <Link to={'/cart'} className={styles.cartItem}>
+            <Link className={styles.menuLink} to={'/orders'}>
+              My Orders
+            </Link>
+            <Link className={styles.menuLink} to={'/products'}>
+              Products
+            </Link>
+            <Link
+              className={`${styles.menuLink} ${styles.cartItem}`}
+              to={'/cart'}
+            >
               Cart
               <img src='/imgs/icons/shopping-cart.svg' alt='' />
             </Link>
@@ -45,7 +92,7 @@ export default function Home() {
         <div className={styles.homeContentHeader}>
           <p>Olá, {authData?.user?.fullname}</p>
           <h1>What are you looking for today?</h1>
-          <Box sx={{ width: 500, maxWidth: '100%' }}>
+          <Box sx={{ width: 500, maxWidth: '100%' }} >
             <TextField
               fullWidth
               type='search'
@@ -53,34 +100,54 @@ export default function Home() {
               size='small'
               placeholder='Looking for something?'
               slotProps={{
-                startAdornment: (
-                  <InputAdornment position='start'>
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
+                input: {
+                  startAdornment: (
+                    <InputAdornment position='start'>
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                },
               }}
             />
           </Box>
         </div>
         <div className={styles.homeCategories}>
           <ul>
-            <li>Controllers</li>
-            <li>Headphones</li>
-            <li>Mixers</li>
+            <li
+              className={
+                selectedCategory === 'Controllers' ? styles.active : ''
+              }
+              onClick={() => setSelectedCategory('Controllers')}
+            >
+              Controllers
+            </li>
+            <li
+              className={selectedCategory === 'Headphones' ? styles.active : ''}
+              onClick={() => setSelectedCategory('Headphones')}
+            >
+              Headphones
+            </li>
+            <li
+              className={selectedCategory === 'Mixers' ? styles.active : ''}
+              onClick={() => setSelectedCategory('Mixers')}
+            >
+              Mixers
+            </li>
           </ul>
 
           <div className={styles.homeProductCard}>
-            <h2>Sennheiser HD 25 Headphone</h2>
-            <img
-              src='/imgs/products/Fone-de-Ouvido-Sennheiser-HD-25.png'
-              alt=''
-            />
-            <Link to={'/products'}>
-              <MyButton className={styles.productCardBtn}>
-                Shop now
-                <img src='/imgs/icons/arrow-right.svg' alt='' />
-              </MyButton>
-            </Link>
+            {filteredProducts.map((product) => (
+              <div className={styles.productCard} key={product._id}>
+                <h2>{product.name}</h2>
+                <img src={product.image_url} alt={product.name} />
+                <Link to={'/products'}>
+                  <MyButton className={styles.productCardBtn}>
+                    Shop now
+                    <img src='/imgs/icons/arrow-right.svg' alt='' />
+                  </MyButton>
+                </Link>
+              </div>
+            ))}
           </div>
 
           <div className={styles.homeFeaturedProducts}>
@@ -91,27 +158,13 @@ export default function Home() {
           </div>
 
           <div className={styles.homeFeaturedCards}>
-            <div className={styles.homeFeaturedCard}>
-              <img
-                src='/imgs/products/Fone-de-Ouvido-Sennheiser-HD-25.png'
-                alt=''
-              />
-              <p>
-                Sennheiser HD 25 <br /> Headphone
-              </p>
-              <p className={styles.price}>$ 399</p>
-            </div>
-
-            <div className={styles.homeFeaturedCard}>
-              <img
-                src='/imgs/products/Fone-de-Ouvido-Sennheiser-HD-25.png'
-                alt=''
-              />
-              <p>
-                Sennheiser HD 25 <br /> Headphone
-              </p>
-              <p className={styles.price}>$ 399</p>
-            </div>
+            {productsList.slice(0, 2).map((product) => (
+              <div className={styles.homeFeaturedCard} key={product._id}>
+                <img src={product.image_url} alt={product.name} />
+                <p>{product.name}</p>
+                <p className={styles.price}>$ {product.price}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

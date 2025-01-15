@@ -24,78 +24,89 @@ nav {
   flex-direction: column;
   align-items: center;
   height: 100%;
-  padding: 2em;
+  font-weight: 600;
+  padding: 5em 2em;
   font-size: 20px;
   gap: 2em;
-  margin-top: 3em;
+  background-color: #f6f6f6;
+}
+
+.menuLink {
+  color: var(--color-dark-grey-2);
+}
+
+.cartItem {
+  display: flex;  
+  align-items: center;
+  gap: .5em;
 }
 
 .ordersHeader {
-    margin: 1em;
-    margin-bottom: 4em;
-    display: flex;
-    flex-direction: column;
-    gap: .5em;
+  margin: 1em;
+  margin-bottom: 4em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
 }
 
 .ordersHeader h2 {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .ordersHeader h4 {
-    font-weight: 400;
-    font-size: 16px;
-    color: var(--color-dark-grey-1);
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--color-dark-grey-1);
 }
 
 .ordersContainer {
-    margin: 1em;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 1em;
+  margin: 1em;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1em;
 }
 
 .orderContainer {
-    display: flex;
-    flex-direction: column;
-    gap: .5em;
-    background-color: var(--color-light-grey-2);
-    color: var(--color-dark-grey-2);
-    border-radius: 1em;
-    padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  background-color: var(--color-light-grey-2);
+  color: var(--color-dark-grey-2);
+  border-radius: 1em;
+  padding: 1em;
 }
 
 .deliveryStatus {
-    border-radius: .5em;
-    width: fit-content;
-    padding: .2em;
-    font-size: 18px;
+  border-radius: 0.5em;
+  width: fit-content;
+  padding: 0.2em;
+  font-size: 18px;
 }
 
 .zeroOrder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    gap: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  gap: 1em;
 }
 
 .pending {
-    background-color: #d6c91863;
+  background-color: #d6c91863;
 }
 
 .delivered {
-    background: #0acf8363;
+  background: #0acf8363;
 }
 
 .sent {
-    background-color: #18a0d663;
+  background-color: #18a0d663;
 }
 
 .canceled {
-    background-color: #cd4d1a63;
+  background-color: #cd4d1a63;
 }
 
 .deliveredContainer {
-    margin-bottom: 2em;
+  margin-bottom: 2em;
 }

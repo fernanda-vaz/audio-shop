@@ -1,110 +1,154 @@
 .pageContainer {
-    height: 100vh;
-    width: 100vw;
+  height: 100vh;
+  width: 100vw;
 }
 
 nav {
-    display: flex;
-    align-items: center;
-    padding: .5em;
-    height: 4em;
+  display: flex;
+  align-items: center;
+  padding: 0.5em;
+  height: 4em;
 }
 
 .mobileNavbarItems {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 1.5em;
-    padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1.5em;
+  padding: 1em;
 }
 
 .drawer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    padding: 2em;
-    font-size: 20px;
-    gap: 2em;
-    margin-top: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  font-weight: 600;
+  padding: 5em 2em;
+  font-size: 20px;
+  gap: 2em;
+  background-color: #f6f6f6;
+}
+
+.menuLink {
+  color: var(--color-dark-grey-2);
 }
 
 .cartItem {
-    display: flex;
-    align-items: center;
-    gap: .2em;
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
 }
 
 .homeContentHeader {
-    margin: 1.2em;
+  margin: 1.2em;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 .homeCategories {
-    background-color: #F3F3F3;
-    border-radius: 30 30 0 0;
-    margin: 10 0;
-    height: 100%;
+  background-color: #f3f3f3;
+  border-radius: 30 30 0 0;
+  margin: 10 0;
+  height: 100%;
 }
 
 .homeCategories ul {
-    display: flex;
-    justify-content: space-between;
-    padding: 1em;
-    color: #7f7f7f;
-    font-size: 14px;
-    height: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  padding: 1em;
+  color: #7f7f7f;
+  font-size: 14px;
+  height: 100%;
+}
+
+.homeCategories ul li {
+  padding: 5px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.homeCategories ul li:hover {
+  background-color: #fff;
+}
+
+.homeCategories ul li.active {
+  background-color: var(--color-green);
+  color: #fff;
 }
 
 .homeProductCard {
-    background-color: #FFF;
-    border-radius: 1.5em;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    font-size: 20px;
-    font-weight: 700;
-    align-items: center;
-    padding: 2em;
-    gap: .75em;
-    margin: .5em;
+  background-color: #fff;
+  border-radius: 1.5em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  align-items: center;
+  padding: 2em;
+  gap: 0.75em;
+  margin: 0.5em;
+}
+
+.productCard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.productCard h2 {
+  font-size: 24px;
+  text-align: left;
+  text-transform: uppercase;
+  line-height: 1.5em;
+  padding-bottom: 1em;
 }
 
 .homeFeaturedProducts {
-    display: flex;
-    justify-content: space-between;
-    padding: 1em;
-    font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  font-size: 16px;
 }
 
 .link {
-    color: #7f7f7f;
+  color: #7f7f7f;
 }
 
 .homeFeaturedCards {
-    display: flex;
-    flex-wrap: nowrap;
-    padding: 2em;
-    gap: 1.5em;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 2em;
+  gap: 1.5em;
 }
 
-.homeProductCard img {
-    max-width: 10em;
+.productCard img {
+  max-width: 8em;
 }
 
 .homeFeaturedCard {
-    background-color: #FFF;
-    font-size: 16px;
-    border-radius: 1em;
-    width: fit-content;
-    margin-bottom: 5em;
-    padding: .5em;
+  background-color: #fff;
+  font-size: 16px;
+  border-radius: 1em;
+  width: fit-content;
+  margin-bottom: 5em;
+  padding: 0.5em;
+}
+
+.homeFeaturedCard p {
+  font-size: 14px;
 }
 
 .homeFeaturedCard img {
-    max-width: 7em;
+  max-width: 7em;
 }
 
 .price {
-    font-weight: 700;
-    margin-top: .5em;
+  font-weight: 700;
+  margin-top: 0.5em;
 }

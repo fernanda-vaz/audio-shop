@@ -1,17 +1,63 @@
-import { useState } from 'react'
 import styles from './Products.module.css'
-import { Drawer } from '@mui/material'
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import ProductService from '../../services/products.jsx'
+import { useEffect, useState } from 'react'
+import Loading from '../../components/loading/Loading.jsx'
+import ProductsCard from '../../components/productCard/ProductCard.jsx'
+import { Link, useNavigate } from 'react-router-dom'
+import { useCartContext } from '../../contexts/useCartContext.jsx'
+import ProductPopup from '../../components/productPopup/ProductPopup.jsx'
 
 export default function Products() {
-  const [openMenu, setOpenMenu] = useState(false)
+  const [selectedCategory, setSelectedCategory] = useState('Controllers')
+  const [selectedProduct, setSelectedProduct] = useState(null)
+  
+  const { addToCart } = useCartContext()
+  const navigate = useNavigate()
 
-  const handleOpenMenu = () => {
-    setOpenMenu(!openMenu)
+  const {
+    getAvailableProducts,
+    getProductsByControllersCategory,
+    getProductsByHeadphonesCategory,
+    getProductsByMixersCategory,
+    productsList,
+    productsLoading,
+    refetchProducts,
+  } = ProductService()
+
+  useEffect(() => {
+    if (refetchProducts) {
+      getAvailableProducts()
+    }
+  }, [refetchProducts])
+
+  useEffect(() => {
+    if (selectedCategory === 'Headphones') {
+      getProductsByHeadphonesCategory()
+    } else if (selectedCategory === 'Controllers') {
+      getProductsByControllersCategory()
+    } else if (selectedCategory === 'Mixers') {
+      getProductsByMixersCategory()
+    }
+  }, [selectedCategory])
+
+  const handleSelectedProduct = (product) => {
+    setSelectedProduct(product)
   }
 
-  const navigate = useNavigate()
+  const handlePopupClose = () => {
+    setSelectedProduct(null)
+  }
+
+  const handleAddToCart = (itemToAdd) => {
+    addToCart(itemToAdd)
+    handlePopupClose()
+    // console.log(itemToAdd)
+  }
+
+  if (productsLoading) {
+    return <Loading />
+  }
+  // console.log(productsList)
 
   return (
     <div className={styles.pageContainer}>
@@ -26,74 +72,43 @@ export default function Products() {
             alt=''
           />
           <img src='/imgs/icons/logo-home.svg' alt='' />
-          <img src='/imgs/icons/shopping-cart.svg' alt='' />
+          <Link to={'/cart'}>
+            <img src='/imgs/icons/shopping-cart.svg' alt='' />
+          </Link>
         </div>
-
-        <Drawer anchor='left' open={openMenu} onClose={handleOpenMenu}>
-          <div className={styles.drawer}>
-            <Link to={'/'}>Home</Link>
-            <Link to={'/products'}>Products</Link>
-            <Link to={'/cart'} className={styles.cartItem}>
-              Cart
-              <img src='/imgs/icons/shopping-cart.svg' alt='' />
-            </Link>
-          </div>
-        </Drawer>
       </nav>
 
-      <section className={styles.productsCategories}>
+      <div className={styles.prodCategories}>
         <ul>
-          <li>Controllers</li>
-          <li>Headphones</li>
-          <li>Mixers</li>
+          <li 
+            className={selectedCategory === 'Controllers' ? styles.active : ''}
+            onClick={() => setSelectedCategory('Controllers')}
+          >
+            Controllers
+          </li>
+          <li className={selectedCategory === 'Headphones' ? styles.active : ''} onClick={() => setSelectedCategory('Headphones')}>Headphones</li>
+          <li className={selectedCategory === 'Mixers' ? styles.active : ''} onClick={() => setSelectedCategory('Mixers')}>Mixers</li>
         </ul>
-
-        <div className={styles.productsFeaturedCards}>
-          <div className={styles.productsFeaturedCard}>
-            <img
-              src='/imgs/products/Fone-de-Ouvido-Sennheiser-HD-25.png'
-              alt=''
-            />
-            <p>
-              Sennheiser HD 25 <br /> Headphone
-            </p>
-            <p className={styles.price}>$ 399</p>
+        {productsList.map((product) => (
+          <div
+            className={styles.cardContainer}
+            key={product._id}
+            onClick={() => {
+              handleSelectedProduct(product)
+            }}
+          >
+            <ProductsCard productData={product} />
           </div>
+        ))}
+      </div>
 
-          <div className={styles.productsFeaturedCard}>
-            <img
-              src='/imgs/products/Fone-de-Ouvido-Sennheiser-HD-25.png'
-              alt=''
-            />
-            <p>
-              Sennheiser HD 25 <br /> Headphone
-            </p>
-            <p className={styles.price}>$ 399</p>
-          </div>
-
-          <div className={styles.productsFeaturedCard}>
-            <img
-              src='/imgs/products/Fone-de-Ouvido-Sennheiser-HD-25.png'
-              alt=''
-            />
-            <p>
-              Sennheiser HD 25 <br /> Headphone
-            </p>
-            <p className={styles.price}>$ 399</p>
-          </div>
-
-          <div className={styles.productsFeaturedCard}>
-            <img
-              src='/imgs/products/Fone-de-Ouvido-Sennheiser-HD-25.png'
-              alt=''
-            />
-            <p>
-              Sennheiser HD 25 <br /> Headphone
-            </p>
-            <p className={styles.price}>$ 399</p>
-          </div>
-        </div>
-      </section>
+      {selectedProduct && (
+        <ProductPopup
+          productData={selectedProduct}
+          onClose={handlePopupClose}
+          onAddToCart={handleAddToCart}
+        />
+      )}
     </div>
   )
 }
