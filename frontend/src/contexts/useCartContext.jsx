@@ -9,11 +9,10 @@ export function CartProvider({ children }) {
     const checkItemAlready = cartItems.find((cartItem) => {
       return cartItem._id === itemToAdd._id
     })
-
     if (!checkItemAlready) {
       itemToAdd.quantity = 1
       setCartItems([...cartItems, itemToAdd])
-      console.log('Item added correctly!')
+      console.log('Item added correctly')
     } else {
       console.log('Item is already on cart')
     }
@@ -25,6 +24,7 @@ export function CartProvider({ children }) {
     })
     setCartItems(cartItemRemoved)
   }
+
   const updateCartItems = (items) => {
     setCartItems(items)
   }

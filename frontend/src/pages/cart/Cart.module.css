@@ -19,8 +19,33 @@ nav {
   padding: 1em;
 }
 
+.emptyCart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3em;
+  gap: 1em;
+}
+
+.linkBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .cartProductCard {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
   align-items: center;
   margin: 1.75em;
   gap: 0.5em;
@@ -71,10 +96,9 @@ nav {
   bottom: 100px;
 }
 
-.button {
+.checkoutBtn {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
   bottom: 50px;
 }

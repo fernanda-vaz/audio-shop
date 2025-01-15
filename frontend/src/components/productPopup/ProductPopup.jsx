@@ -12,7 +12,7 @@ export default function ProductPopup({ productData, onClose, onAddToCart }) {
                     <h2>{productData.name}</h2>
                     <p>{productData.description}</p>
                     <p className={styles.price}>$ {productData.price}</p>
-                    <Link onClick={() => { onAddToCart(productData) }}>
+                    <Link onClick={() => { onAddToCart(productData) } }>
                         <MyButton>Add to Cart</MyButton>
                     </Link>
                 </div>

@@ -18,7 +18,7 @@ export default function NewProducts() {
   } = ProductService()
 
   const [selectedProduct, setSelectedProduct] = useState(null)
-
+  const { addToCart } = useCartContext()
 
   useEffect(() => {
     if (refetchProducts) {
@@ -35,13 +35,15 @@ export default function NewProducts() {
   }
 
   const handleAddToCart = (itemToAdd) => {
+    addToCart(itemToAdd)
     handlePopupClose()
+    // console.log(itemToAdd)
   }
 
   if (productsLoading) {
     return <Loading />
   }
-  console.log(productsList)
+  // console.log(productsList)
 
   return (
     <div className={styles.pageContainer}>
@@ -91,6 +93,7 @@ export default function NewProducts() {
         <ProductPopup 
           productData={selectedProduct}
           onClose={handlePopupClose}
+          onAddToCart={handleAddToCart}
         />
       )}
     </div>
