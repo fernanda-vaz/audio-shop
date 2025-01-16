@@ -90,7 +90,7 @@ export default function Auth() {
                 fullWidth
                 color='success'
                 required
-                label='Senha'
+                label='Password'
                 type='password'
                 name='password'
                 onChange={handleChangeFormData}
@@ -102,8 +102,8 @@ export default function Auth() {
             </MyButton>
           </form>
 
-          <Button onClick={handleChangeFormType}>
-            Não tem uma conta? clique aqui
+          <Button color='inherit' onClick={handleChangeFormType}>
+            Don't you have an account? Click Here
           </Button>
         </>
       ) : null}
@@ -125,7 +125,7 @@ export default function Auth() {
                 focused
                 fullWidth
                 color='success'
-                label='Nome Completo'
+                label='Full Name'
                 type='fullname'
                 name='fullname'
                 onChange={handleChangeFormData}
@@ -147,7 +147,7 @@ export default function Auth() {
                 focused
                 fullWidth
                 color='success'
-                label='Senha'
+                label='Password'
                 type='password'
                 name='password'
                 onChange={handleChangeFormData}
@@ -158,15 +158,15 @@ export default function Auth() {
                 focused
                 fullWidth
                 color='success'
-                label='Confirme a senha'
+                label='Confirm your password'
                 type='password'
                 name='confirmPassword'
                 onChange={handleChangeFormData}
               />
             </Box>
 
-            <MyButton className={styles.formBtn} type='submit'>
-              Login{' '}
+            <MyButton type='submit'>
+              Sign up
               <img
                 className={styles.formBtnIcon}
                 src='/imgs/icons/log-in.svg'
@@ -174,8 +174,12 @@ export default function Auth() {
               />
             </MyButton>
           </form>
-          <Button onClick={handleChangeFormType}>
-            Já tem uma conta? clique aqui
+          <Button
+            color='inherit'
+            className={styles.btn}
+            onClick={handleChangeFormType}
+          >
+            Already have an account? Click Here
           </Button>
         </>
       ) : null}

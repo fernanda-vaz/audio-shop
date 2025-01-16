@@ -28,10 +28,7 @@ export default function ConfirmOrderPopup({ open, onClose, onConfirm }) {
     <Dialog open={open} onClose={onClose}>
       <div className={styles.popupContainer}>
         <h2>We're almost there...</h2>
-        <p>
-          Confirm your order with the current date:
-          <strong>{new Date().toLocaleDateString()}</strong>
-        </p>
+        <p>Confirm your order?</p>
         <p>Total price: $ {calculateTotalPrice().toFixed(2)}</p>
 
         <div className={styles.confirmBtn}>

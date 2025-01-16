@@ -52,13 +52,16 @@ nav {
 }
 
 .cartImage img {
-  width: 7em;
+  width: 10em;
   padding: 0.2em;
 }
 
 .cartImage {
   background-color: var(--color-light-grey-2);
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cardIcons {
@@ -89,11 +92,9 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1em;
-  gap: 15em;
-  padding: 0.5em;
-  position: absolute;
-  bottom: 100px;
+  gap: 5em;
+  width: 100%;
+  padding: 1.5em;
 }
 
 .checkoutBtn {

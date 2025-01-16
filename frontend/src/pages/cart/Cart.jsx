@@ -24,15 +24,17 @@ export default function Cart() {
     const updatedCartItems = cartItems.map((item) => {
       if (item._id === itemId) {
         if (mode === 'less' && item.quantity > 1) {
-          item.quantity -= 1
+          return { ...item, quantity: item.quantity - 1 }
         } else if (mode === 'more') {
-          item.quantity += 1
+          return { ...item, quantity: item.quantity + 1 }
         }
       }
       return item
     })
     updateCartItems(updatedCartItems)
   }
+
+  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0)
 
   const handleOpenPopup = (e) => {
     e.preventDefault()
@@ -153,7 +155,7 @@ export default function Cart() {
 
       <div className={styles.cartFinalPrice}>
         <p>
-          Total: {cartItems.length} {cartItems.length === 1 ? 'item' : 'items'}
+          Total: {totalItems} {totalItems === 1 ? 'item' : 'items'}
         </p>
         <h5>$ {calculateTotalPrice().toFixed(2)}</h5>
       </div>
