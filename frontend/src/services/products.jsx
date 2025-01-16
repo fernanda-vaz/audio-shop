@@ -5,7 +5,9 @@ export default function ProductService() {
   const [refetchProducts, setRefetchProducts] = useState(true)
   const [productsList, setProductsList] = useState([])
 
-  const url = 'http://localhost:3000/products'
+  // const url = 'http://localhost:3000/products'
+  const url =
+    'http://audioshop-backend-cec6f4bvbyg7eqc3.brazilsouth-01.azurewebsites.net/products'
 
   const getAvailableProducts = (userId) => {
     setProductsLoading(true)
