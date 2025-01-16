@@ -141,8 +141,6 @@ O design do projeto foi baseado no [E-Commerce UI Kit V1.1](https://www.figma.co
    npm run dev
    ```
 
-````
-
 ### Frontend:
 
 1. Clone o repositório do frontend
@@ -150,14 +148,112 @@ O design do projeto foi baseado no [E-Commerce UI Kit V1.1](https://www.figma.co
    ```bash
    npm install
    npm run dev
-````
+   ```
 
 ## Deploy:
 
-- Backend: Deploy realizado no Vercel [Link Aqui](link será adicionado futuramente).
-- Frontend: Deploy realizado no Vercel [Link Aqui](link será adicionado futuramente).
+- Backend: Deploy realizado no Azure [Aqui](https://audioshop-backend-cec6f4bvbyg7eqc3.brazilsouth-01.azurewebsites.net).
+- Frontend: Deploy realizado no Vercel [Aqui](https://audio-shop-three.vercel.app/).
 
-## Próximos Passos:
+# Melhorias e Próximos Passos - Audio Shop
 
-- Desenvolver a versão desktop do projeto.
-- Implementar pequenas alterações para melhorar a experiência do usuário.
+## 1. Melhorias Visuais e de UI/UX
+
+- **Responsividade:**
+
+  - Adaptar o design para telas maiores, como desktops e tablets.
+
+- **Feedback ao Usuário:**
+  - Adicionar animações sutis para interações, como botões que mudam ao passar o mouse ou animações de carregamento.
+
+---
+
+## 2. Funcionalidades
+
+- **Filtros e Pesquisa de Produtos:**
+
+  - Implementar filtros (ex.: por preço, marca ou categoria).
+
+- **Wishlist (Lista de Desejos):**
+
+  - Permitir que o usuário salve produtos em uma lista de desejos.
+
+- **Avaliação de Produtos:**
+
+  - Adicionar um sistema de avaliações e comentários nos produtos.
+
+- **Carrinho de Compras:**
+
+  - Adicionar um indicador visual no ícone do carrinho com o número de itens.
+
+- **Checkout:**
+  - Implementar uma seção de pagamento integrada (APIs como Stripe ou PayPal).
+
+---
+
+## 3. Performance
+
+- **Otimização de Imagens:**
+
+  - Implementar lazy loading para carregar imagens visíveis na tela.
+
+- **Monitoramento de Performance:**
+  - Utilizar ferramentas como Lighthouse ou Web Vitals para identificar gargalos.
+
+---
+
+## 4. Backend
+
+- **Paginação de Produtos:**
+
+  - Implementar paginação ou carregamento infinito na listagem de produtos.
+
+- **Controle de Estoque:**
+
+  - Adicionar lógica para monitorar a quantidade disponível de cada produto.
+  - Notificar usuários sobre itens em baixa quantidade.
+
+- **Histórico de Pedidos:**
+  - Criar uma página onde os usuários possam visualizar pedidos anteriores.
+
+---
+
+## 5. Testes
+
+- **Testes Automatizados:**
+
+  - Adicionar testes de unidade e integração no backend (ex.: Jest).
+  - Incluir testes no frontend utilizando Testing Library e Cypress.
+
+- **Cobertura de Testes:**
+  - Configurar pipelines para monitorar e garantir a cobertura de testes.
+
+---
+
+## 6. Deploy e Monitoramento
+
+- **Configuração Avançada de Deploy:**
+
+  - Utilizar CI/CD para automatizar o deploy na Vercel e no backend.
+
+- **Monitoramento:**
+  - Implementar ferramentas como Sentry para capturar erros em tempo real.
+  - Usar logs no backend com ferramentas como Winston ou LogRocket.
+
+---
+
+## 7. Próximos Passos no Desenvolvimento
+
+- **Versão Desktop:**
+
+  - Ampliar a experiência do usuário para telas maiores.
+
+- **Internacionalização:**
+
+  - Adicionar suporte a múltiplos idiomas.
+
+- **Acessibilidade:**
+  - Certificar-se de que a aplicação atende aos padrões WCAG.
+  - Utilizar ferramentas como Lighthouse para verificar problemas.
+
+---

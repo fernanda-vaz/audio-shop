@@ -10,7 +10,6 @@ import Profile from './pages/profile/Profile.jsx'
 import ProductDetails from './pages/productDetails/ProductDetails.jsx'
 import UserOrders from './pages/orders/UserOrders.jsx'
 import Products from './pages/products/Products.jsx'
-import TestPage from './pages/testPage/TestPage.jsx'
 
 const pages = createBrowserRouter([
   {
@@ -24,7 +23,6 @@ const pages = createBrowserRouter([
       { path: '/profile', element: <Profile /> },
       { path: '/orders', element: <UserOrders /> },
       // { path: '/details', element: <ProductDetails /> },
-      // { path: '/test', element: <TestPage /> },
     ],
   },
 ])
