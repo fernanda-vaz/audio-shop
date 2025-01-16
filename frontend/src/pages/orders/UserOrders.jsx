@@ -121,11 +121,6 @@ export default function () {
           </Link>
         </div>
       )}
-      <div className={styles.zeroOrder}>
-        <Link to={'/products'}>
-          <MyButton>Click Here to order!</MyButton>
-        </Link>
-      </div>
     </div>
   )
 }

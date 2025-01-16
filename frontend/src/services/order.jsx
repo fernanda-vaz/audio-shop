@@ -5,9 +5,7 @@ export default function OrderServices() {
   const [refetchOrders, setRefetchOrders] = useState(true)
   const [ordersList, setOrdersList] = useState([])
 
-  // const url = 'http://localhost:3000/orders'
-  const url =
-    'http://audioshop-backend-cec6f4bvbyg7eqc3.brazilsouth-01.azurewebsites.net/orders'
+  const url = `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/orders`
 
   const getUserOrders = (userId) => {
     setOrderLoading(true)
