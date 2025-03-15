@@ -75,25 +75,65 @@ export default function Auth() {
               className={styles.authBox}
             >
               <TextField
-                color='success'
-                focused
                 fullWidth
                 required
                 label='Email'
                 type='email'
                 name='email'
                 onChange={handleChangeFormData}
+                sx={{
+                  '& .MuiInputLabel-root': {
+                    color: '#0acf83',
+                    '&.Mui-focused': {
+                      color: '#0acf83',
+                    },
+                  },
+                  '& .MuiInputBase-input': {
+                    color: '#f2f2f2',
+                  },
+                  '& .MuiOutlinedInput-root': {
+                    '& fieldset': {
+                      borderColor: '#0acf83',
+                    },
+                    '&:hover fieldset': {
+                      borderColor: '#0acf83',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#0acf83',
+                    },
+                  },
+                }}
               />
 
               <TextField
-                focused
                 fullWidth
-                color='success'
                 required
                 label='Password'
                 type='password'
                 name='password'
                 onChange={handleChangeFormData}
+                sx={{
+                  '& .MuiInputLabel-root': {
+                    color: '#0acf83',
+                    '&.Mui-focused': {
+                      color: '#0acf83',
+                    },
+                  },
+                  '& .MuiInputBase-input': {
+                    color: '#f2f2f2',
+                  },
+                  '& .MuiOutlinedInput-root': {
+                    '& fieldset': {
+                      borderColor: '#0acf83',
+                    },
+                    '&:hover fieldset': {
+                      borderColor: '#0acf83',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#0acf83',
+                    },
+                  },
+                }}
               />
             </Box>
 
@@ -102,7 +142,16 @@ export default function Auth() {
             </MyButton>
           </form>
 
-          <Button color='inherit' onClick={handleChangeFormType}>
+          <Button
+            onClick={handleChangeFormType}
+            sx={{
+              color: '#f2f2f2',
+              backgroundColor: '#7f7f7f45',
+              '&:hover': {
+                backgroundColor: '#7f7f7f',
+              },
+            }}
+          >
             Don't you have an account? Click Here
           </Button>
         </>
@@ -122,46 +171,126 @@ export default function Auth() {
             >
               <TextField
                 required
-                focused
                 fullWidth
-                color='success'
                 label='Full Name'
                 type='fullname'
                 name='fullname'
                 onChange={handleChangeFormData}
+                sx={{
+                  '& .MuiInputLabel-root': {
+                    color: '#0acf83',
+                    '&.Mui-focused': {
+                      color: '#0acf83',
+                    },
+                  },
+                  '& .MuiInputBase-input': {
+                    color: '#f2f2f2',
+                  },
+                  '& .MuiOutlinedInput-root': {
+                    '& fieldset': {
+                      borderColor: '#0acf83',
+                    },
+                    '&:hover fieldset': {
+                      borderColor: '#0acf83',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#0acf83',
+                    },
+                  },
+                }}
               />
 
               <TextField
                 required
-                focused
                 fullWidth
-                color='success'
                 label='Email'
                 type='email'
                 name='email'
                 onChange={handleChangeFormData}
+                sx={{
+                  '& .MuiInputLabel-root': {
+                    color: '#0acf83',
+                    '&.Mui-focused': {
+                      color: '#0acf83',
+                    },
+                  },
+                  '& .MuiInputBase-input': {
+                    color: '#f2f2f2',
+                  },
+                  '& .MuiOutlinedInput-root': {
+                    '& fieldset': {
+                      borderColor: '#0acf83',
+                    },
+                    '&:hover fieldset': {
+                      borderColor: '#0acf83',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#0acf83',
+                    },
+                  },
+                }}
               />
 
               <TextField
                 required
-                focused
                 fullWidth
-                color='success'
                 label='Password'
                 type='password'
                 name='password'
                 onChange={handleChangeFormData}
+                sx={{
+                  '& .MuiInputLabel-root': {
+                    color: '#0acf83',
+                    '&.Mui-focused': {
+                      color: '#0acf83',
+                    },
+                  },
+                  '& .MuiInputBase-input': {
+                    color: '#f2f2f2',
+                  },
+                  '& .MuiOutlinedInput-root': {
+                    '& fieldset': {
+                      borderColor: '#0acf83',
+                    },
+                    '&:hover fieldset': {
+                      borderColor: '#0acf83',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#0acf83',
+                    },
+                  },
+                }}
               />
 
               <TextField
                 required
-                focused
                 fullWidth
-                color='success'
                 label='Confirm your password'
                 type='password'
                 name='confirmPassword'
                 onChange={handleChangeFormData}
+                sx={{
+                  '& .MuiInputLabel-root': {
+                    color: '#0acf83',
+                    '&.Mui-focused': {
+                      color: '#0acf83',
+                    },
+                  },
+                  '& .MuiInputBase-input': {
+                    color: '#f2f2f2',
+                  },
+                  '& .MuiOutlinedInput-root': {
+                    '& fieldset': {
+                      borderColor: '#0acf83',
+                    },
+                    '&:hover fieldset': {
+                      borderColor: '#0acf83',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#0acf83',
+                    },
+                  },
+                }}
               />
             </Box>
 
@@ -175,9 +304,15 @@ export default function Auth() {
             </MyButton>
           </form>
           <Button
-            color='inherit'
             className={styles.btn}
             onClick={handleChangeFormType}
+            sx={{
+              color: '#f2f2f2',
+              backgroundColor: '#7f7f7f45',
+              '&:hover': {
+                backgroundColor: '#7f7f7f',
+              },
+            }}
           >
             Already have an account? Click Here
           </Button>

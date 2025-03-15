@@ -56,3 +56,11 @@ nav {
     display: flex;
     flex-direction: column;
 }
+
+@media (min-width: 768px) {
+  .pageContainer {
+    height: 100vh;
+    max-width: 768px;
+    margin: 0 auto;
+  }
+}

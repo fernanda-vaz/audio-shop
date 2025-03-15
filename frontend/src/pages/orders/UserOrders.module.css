@@ -36,9 +36,9 @@ nav {
 }
 
 .cartItem {
-  display: flex;  
+  display: flex;
   align-items: center;
-  gap: .5em;
+  gap: 0.5em;
 }
 
 .ordersHeader {
@@ -109,4 +109,12 @@ nav {
 
 .deliveredContainer {
   margin-bottom: 2em;
+}
+
+@media (min-width: 768px) {
+  .pageContainer {
+    height: 100vh;
+    max-width: 768px;
+    margin: 0 auto;
+  }
 }

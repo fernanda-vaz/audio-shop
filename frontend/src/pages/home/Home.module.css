@@ -152,3 +152,12 @@ nav {
   font-weight: 700;
   margin-top: 0.5em;
 }
+
+@media (min-width: 768px) {
+  .pageContainer {
+    height: 100vh;
+    max-width: 768px;
+    margin: 0 auto;
+  }
+  
+}

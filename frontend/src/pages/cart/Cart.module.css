@@ -103,3 +103,12 @@ nav {
   align-items: center;
   bottom: 50px;
 }
+
+@media (min-width: 768px) {
+  .pageContainer {
+    height: 100vh;
+    max-width: 768px;
+    margin: 0 auto;
+  }
+  
+}
