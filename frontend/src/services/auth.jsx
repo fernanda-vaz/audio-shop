@@ -3,7 +3,7 @@ import { useState } from 'react'
 export default function AuthServices() {
   const [authLoading, setAuthLoading] = useState(false)
 
-  const url = `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/auth`
+  const url = 'https://audio-shop-backend-0wz2.onrender.com/auth'
 
   const login = (formData) => {
     setAuthLoading(true)

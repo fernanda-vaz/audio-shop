@@ -5,7 +5,7 @@ export default function ProductService() {
   const [refetchProducts, setRefetchProducts] = useState(true)
   const [productsList, setProductsList] = useState([])
 
-  const url = `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/products`
+  const url = 'https://audio-shop-backend-0wz2.onrender.com/products'
 
   const getAvailableProducts = (userId) => {
     setProductsLoading(true)

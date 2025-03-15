@@ -5,7 +5,7 @@ export default function OrderServices() {
   const [refetchOrders, setRefetchOrders] = useState(true)
   const [ordersList, setOrdersList] = useState([])
 
-  const url = `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/orders`
+  const url = 'https://audio-shop-backend-0wz2.onrender.com/orders'
 
   const getUserOrders = (userId) => {
     setOrderLoading(true)

@@ -1,6 +1,6 @@
 .pageContainer {
   height: 100vh;
-  background-image: url('../../../public/imgs/auth/Auth-login.png');
+  background-image: url('/imgs/auth/Auth-login.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
